@@ -1,0 +1,9 @@
+-/dep/clpp
+-/dep/rapidjson
+-/dep/easyloggingpp
+-/dep/glew
+-/dep/glfw
+-/dep/cppformat
+-/dep/nano-signal-slot
+-/dep/glm
+-/dep/soil
