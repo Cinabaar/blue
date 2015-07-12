@@ -31,7 +31,6 @@ namespace game
     {
       auto data = std::static_pointer_cast<OnCursorPositionChanged>(event);
       mouseMove = data->getVec();
-      LOG(INFO) << mouseMove.x << " " << mouseMove.y;
     }
     std::shared_ptr<CameraComponent> camera;
     std::shared_ptr<TransformComponent> transform;
@@ -60,15 +59,12 @@ namespace game
     c["mm"] = eventManager.addListener(EventType::MOUSE_CURSOR_POS, bind(&Impl::onMouseMoved, ref(pimpl), _1));
     c["wr"] = eventManager.addListener(EventType::WINDOW_RESIZED, [this](IEventDataSPtr& event) {
         auto data = std::dynamic_pointer_cast<OnWindowResized>(event);
-        //LOG(DEBUG) << fmt::format("Received window resize event. Width: {0}, height: {1}.", data->getWidth(), data->getHeight());
         pimpl->camera->updatePerspective((float)data->getWidth()/data->getHeight());
       });
   }
 
   void CameraLogicComponent::update(double deltaTime)
   {
-    //LOG(DEBUG)<<fmt::format("u:{0} d:{1} l:{2} r:{3} mx:{4} my:{5}",
-    //                       pimpl->moveForward, pimpl->moveBack, pimpl->moveLeft, pimpl->moveRight, pimpl->mouseMove.x, pimpl->mouseMove.y);
     float zMove = pimpl->moveForward - pimpl->moveBack;
     float xMove = pimpl->moveRight - pimpl->moveLeft;
     auto& mouseMove = pimpl->mouseMove;

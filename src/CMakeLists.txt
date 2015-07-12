@@ -20,6 +20,7 @@ add_subdirectory(util)
 
 link_directories(${GLEW_LIBRARY_DIRS})
 add_definitions(${GLEW_DEFINITIONS})
+add_definitions(-DELPP_DISABLE_LOGS)
 
 add_executable(blue ${SOURCE_FILES})
 target_link_libraries(blue ${OPENGL_LIBRARIES} libglew_shared ${GLFW_STATIC_LIBRARIES} clpp cppformat SOIL)
