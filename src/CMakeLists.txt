@@ -18,8 +18,11 @@ add_subdirectory(process)
 add_subdirectory(system)
 add_subdirectory(util)
 
+link_directories(${GLEW_LIBRARY_DIRS})
+add_definitions(${GLEW_DEFINITIONS})
+
 add_executable(blue ${SOURCE_FILES})
-target_link_libraries(blue ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES} ${GLFW_STATIC_LIBRARIES} clpp cppformat SOIL) 
+target_link_libraries(blue ${OPENGL_LIBRARIES} libglew_shared ${GLFW_STATIC_LIBRARIES} clpp cppformat SOIL)
 
 add_subdirectory(kernels)
 add_subdirectory(shaders)

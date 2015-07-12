@@ -1,6 +1,6 @@
 #include "StopWatch.h"
 
-#ifdef WIN32
+#ifdef _WIN32
 
 double StopWatch::LIToSecs(LARGE_INTEGER& L)
 {

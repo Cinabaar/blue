@@ -1,9 +1,7 @@
-//#include <easylogging++.h>
+#include <easylogging++.h>
 #include "window.hpp"
 #include "event/window/window_events.hpp"
-#include "event/event_type.hpp"
 #include "event/event_manager.hpp"
-#include <memory>
 
 namespace gamesystem {
 
@@ -86,7 +84,10 @@ namespace gamesystem {
     glfwGetWindowSize(glfwWindow, &width, &height);
     int centerX = width >> 1, centerY = height >> 1;
     IEventDataSPtr eventDataSPtr = make_shared<OnCursorPositionChanged>(glm::vec2((xPos - centerX)/(width), (centerY - yPos)/(height)));
-    glfwSetCursorPos(glfwWindow, centerX, centerY);
-    EventManager::get().queueEvent(eventDataSPtr);
+    if(!(xPos == centerX && yPos == centerY))
+    {
+      glfwSetCursorPos(glfwWindow, centerX, centerY);
+      EventManager::get().queueEvent(eventDataSPtr);
+    }
   }
 }

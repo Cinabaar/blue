@@ -31,6 +31,7 @@ namespace game
     {
       auto data = std::static_pointer_cast<OnCursorPositionChanged>(event);
       mouseMove = data->getVec();
+      LOG(INFO) << mouseMove.x << " " << mouseMove.y;
     }
     std::shared_ptr<CameraComponent> camera;
     std::shared_ptr<TransformComponent> transform;
