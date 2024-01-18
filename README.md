@@ -4,7 +4,7 @@
 
 Click to view full video:
 
-[![SPH](http://share.gifyoutube.com/vOAXZW.gif)](http://www.youtube.com/watch?v=a44fNPBgibE)
+http://www.youtube.com/watch?v=a44fNPBgibE
 
 ## Description
 
